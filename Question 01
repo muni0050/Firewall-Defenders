@@ -1,0 +1,11 @@
+library(tidyverse)
+#1)Data Wrangling
+# 1a) Loading the data accurately
+assessments<-read.csv("assessments.csv")
+View(assessments)
+
+#1b) b)Handling missing or incorrect data appropriately
+
+
+assessments$date=ifelse(is.na(assessments$date),ave(assessments$date, FUN = function(x)
+  mean(x, na.rm = TRUE)) ,assessments$date)
